@@ -52,15 +52,19 @@ export default function RoomOne({ navigation }) {
           <Text style={styles.header}>Room 1</Text>
         </View>
 
-        <View style={styles.windowContainer}>
+        <View style={styles.windowContainerOne}>
           <TouchableOpacity onPress={() => setModalOpen(!modalOpen)}>
-            <Text style={styles.windowOne}>Window 1</Text>
+            <Text style={styles.windows}>Window 1</Text>
           </TouchableOpacity>
+        </View>
+        <View style={styles.windowContainerTwo}>
           <TouchableOpacity onPress={() => setModalOpen(true)}>
-            <Text style={styles.windowTwo}>Window 2</Text>
+            <Text style={styles.windows}>Window 2</Text>
           </TouchableOpacity>
+        </View>
+        <View style={styles.windowContainerThree}>
           <TouchableOpacity onPress={() => setModalOpen(true)}>
-            <Text style={styles.windowThree}>Window 3</Text>
+            <Text style={styles.windows}>Window 3</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -153,38 +157,44 @@ const styles = StyleSheet.create({
   back: {
     top: 10,
   },
-  windowOne: {
-    backgroundColor: "white",
-    fontSize: 21,
-    padding: 10,
-    borderWidth: 1,
-    borderTopColor: "white",
-    borderEndColor: "white",
-    borderStartColor: "white",
+  windows: {
     fontFamily: "Times New Roman",
-  },
-  windowTwo: {
     backgroundColor: "white",
-    fontSize: 21,
+    fontSize: 25,
     padding: 10,
-    borderWidth: 1,
-    borderTopColor: "white",
-    borderEndColor: "white",
-    borderStartColor: "white",
-    fontFamily: "Times New Roman",
   },
-  windowThree: {
-    backgroundColor: "white",
-    fontSize: 21,
-    padding: 10,
-    borderWidth: 1,
-    borderTopColor: "white",
-    borderEndColor: "white",
-    borderStartColor: "white",
-    fontFamily: "Times New Roman",
-  },
-  windowContainer: {
+  windowContainerOne: {
     top: 100,
+    backgroundColor: "white",
+    fontSize: 20,
+    padding: 5,
+    borderWidth: 1,
+    borderTopColor: "white",
+    borderEndColor: "white",
+    borderStartColor: "white",
+    fontFamily: "Times New Roman",
+  },
+  windowContainerTwo: {
+    top: 100,
+    backgroundColor: "white",
+    fontSize: 20,
+    padding: 5,
+    borderWidth: 1,
+    borderTopColor: "white",
+    borderEndColor: "white",
+    borderStartColor: "white",
+    fontFamily: "Times New Roman",
+  },
+  windowContainerThree: {
+    top: 100,
+    backgroundColor: "white",
+    fontSize: 20,
+    padding: 5,
+    borderWidth: 1,
+    borderTopColor: "white",
+    borderEndColor: "white",
+    borderStartColor: "white",
+    fontFamily: "Times New Roman",
   },
   body: {
     backgroundColor: "white",

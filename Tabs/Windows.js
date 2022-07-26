@@ -16,37 +16,47 @@ import RoomTwo from "./SidePages/RoomTwo";
 import RoomThree from "./SidePages/RoomThree";
 import axios from "axios";
 
-// Previous Window Object List
-// const windowObject = {
-//   id: "Window1",
-//   nickname: "LivingRoomWindow",
-
-//   isReinforced: false,
-// };
-
 
 export default function Windows({navigation}) {
   const [isEnabled, setIsEnabled] = useState(false);
   const [activeSwitch, setActiveSwitch] = useState(null);
 
   const turnOn = () => {
-    console.log("turning on led")
-    axios.get('http://192.168.1.143/led1on').then((res) => {
+    console.log("turning clockwise motor")
+    axios.get('http://172.20.10.4/motor?cw=on').then((res) => {
       console.log(res)
     }).catch((err) => {
       console.log(err)
     }) 
   }
   const turnOff = () => {
-    console.log("turning on led")
-    axios.get('http://192.168.1.143/led1off').then((res) => {
+    console.log("turning counterclockwise motor")
+    axios.get('http://172.20.10.4/motor?ccw=on').then((res) => {
       console.log(res)
     }).catch((err) => {
       console.log(err)
     })
   }
 
-  //Three Equals is going to check for Type (if number or string, Boolean) and checks if it is the correct value
+  const turnOnTwice = () => {
+    console.log("turning clockwise motor")
+    axios.get('http://172.20.10.4/motor?cw=off').then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    }) 
+  }
+
+  const turnOffTwice = () => {
+    console.log("turning clockwise motor")
+    axios.get('http://172.20.10.4/motor?ccw=off').then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    }) 
+  }
+
+ 
 
   const toggleSwitch = (num) => {
     setIsEnabled(setActiveSwitch(num === activeSwitch ? null : num));
@@ -58,7 +68,7 @@ export default function Windows({navigation}) {
     );
   };
 
-  //This is going to be the value of each switch
+
   const switch1 = () => {
     toggleSwitch(1);
   };
@@ -69,20 +79,10 @@ export default function Windows({navigation}) {
     toggleSwitch(3);
   };
 
-//style={styles.} 
-//for the styles
+
   return (
     <View style={styles.Body}>
     <>
-      {/* <View style={styles.addDeleteRoom}>
-        <TouchableOpacity>
-            <Text style={styles.addRoomText}>Add Room</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-            <Text style={styles.deleteRoomText}>Delete Room</Text>
-        </TouchableOpacity>
-      </View> */}
-
       <View style={styles.roomOneContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("RoomOne")}>
           <Text style={styles.roomOneText}>Room 1</Text>
@@ -128,7 +128,6 @@ export default function Windows({navigation}) {
         />
       </View>
 
-        {/* Buttons are here */}
 
       <View style={styles.openShield}>
         <TouchableOpacity onPress={() => {turnOn()}}>
@@ -192,6 +191,7 @@ const styles = StyleSheet.create({
       borderStartColor: 'white',
     },
     roomOneText: {
+        fontFamily: "Times New Roman",
         backgroundColor: "white",
         fontSize: 25,
         padding: 10,
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
       borderStartColor: 'white'
     },
     roomTwoText: {
+        fontFamily: "Times New Roman",
         backgroundColor: "white",
         fontSize: 25,
         padding: 10,
@@ -220,6 +221,7 @@ const styles = StyleSheet.create({
         borderStartColor: 'white'
     },
     roomThreeText: {
+        fontFamily: "Times New Roman",
         backgroundColor: "white",
         fontSize: 25,
         padding: 10,

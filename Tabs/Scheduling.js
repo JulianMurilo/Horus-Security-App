@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
   },
   Body: {
     backgroundColor: "white",
+    flex: 1
   },
   wholecontainer: {
     top: 50,
